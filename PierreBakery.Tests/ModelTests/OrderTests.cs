@@ -7,14 +7,14 @@ using System;
 namespace Bakery.Tests
 {
   [TestClass]
-  public class OrderTests // : IDisposable
+  public class OrderTests : IDisposable
   {
     
-   /* public void Dispose()
+   public void Dispose()
     {
-      Order.ClearALL();
+      Order.ClearAll();
     }
-*/
+
     [TestMethod]
     public void OrderConstructor_CreatesInstanceOfOrder_Order()
     {
@@ -42,6 +42,19 @@ namespace Bakery.Tests
 
       //Assert
       Assert.AreEqual(updatedDescription, result);
+    }
+
+    [TestMethod]
+    public void GetAll_ReturnsEmptyOrderList_OrderList()
+    {
+      //Arrange
+      List<Order> newList = new List<Order> { };
+
+      //Act
+      List<Order> result = Order.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
     }
   }
 }
