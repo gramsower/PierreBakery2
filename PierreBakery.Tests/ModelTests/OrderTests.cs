@@ -56,5 +56,20 @@ namespace Bakery.Tests
       //Assert
       CollectionAssert.AreEqual(newList, result);
     }
+
+    [TestMethod]
+    public void GetAll_ReturnsOrders_OrderList()
+    {
+      //Arrange
+      Order newOrder01 = new Order("test1", "test order1", "10", "4", "01/01/01");
+      Order newOrder02 = new Order("test2", "test order2", "15", "5", "01/02/01");
+      List<Order> newList = new List<Order> { newOrder01, newOrder02 };
+
+      //Act
+      List<Order> result = Order.GetAll();
+
+      //Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
   }
 }
