@@ -22,5 +22,11 @@ namespace Bakery.Models
       _instances.Add(this);
       // OrdId = _instances.Count;
     }
+
+    public static List<Order> GetAll()
+    {
+      return _instances;
+    }
+  
   }
 }
