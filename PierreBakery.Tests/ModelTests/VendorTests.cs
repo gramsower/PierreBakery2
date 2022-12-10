@@ -3,13 +3,22 @@ using Bakery.Models;
 using System.Collections.Generic;
 using System;
 
-namespace Vendor.Tests
+namespace Bakery.Tests
 {
   [TestClass]
   public class VendorTests : IDisposable
   {
     public void Dispose()
     {
-      Vendor.ClearAl();
+      Vendor.ClearAll();
     }
+
+    [TestMethod]
+    public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
+    {
+      Vendor newVendor = new Vendor("pie shoppe");
+      Assert.AreEqual(typeof(Vendor), newVendor.GetType());
+    }
+
+  }
 }
