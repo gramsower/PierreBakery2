@@ -20,5 +20,18 @@ namespace Bakery.Tests
       Assert.AreEqual(typeof(Vendor), newVendor.GetType());
     }
 
+    [TestMethod]
+    public void GetVEndorName_ReturnsVendorName_String()
+    {
+      //Arrange
+      string vendorName = "Julie\'s Pie Shoppe";
+      Vendor newVendor = new Vendor(vendorName);
+
+      //Act
+      string result = newVendor.VendorName;
+
+      //Assert
+      Assert.AreEqual(vendorName, result);
+    }
   }
 }
