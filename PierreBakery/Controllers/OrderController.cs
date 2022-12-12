@@ -7,12 +7,29 @@ namespace Bakery.Controllers
   public class OrderController : Controller
   {
 
-    /* [HttpGet("/orders/{ordId}/orders/new")]
-    public ActionResult New(int OrdId)
+    [HttpGet("/vendors/{vendorId}/orders/new")]
+    public ActionResult New(int vendorId)
     {
-      Vendor vendor = vendor.Find(OrdId);
+      Vendor vendor = Vendor.Find(vendorId);
       return View(vendor);
     }
-    */
+
+    [HttpGet("/vendor/{vendorId}/orders/{ordId}")]
+    public ActionResult Show(int vendorId, int ordId)
+    {
+      Order order = Order.Find(ordId);
+      Vendor vendor = Vendor.Find(vendorId);
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      model.Add("order", order);
+      model.Add("vendor", vendor);
+      return View(model);
+    }
+
+    [HttpPost("/orders/delete")]
+    public ActionResult DeleteAll()
+    {
+      Order.ClearAll();
+      return View();
+    }
   }
 }

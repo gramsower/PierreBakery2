@@ -9,7 +9,7 @@ namespace Bakery.Models
     public string Price { get; set; }
     public string Quantity { get; set; }
     public string Date { get; set; }
-    // public int OrdId { get; }
+    public int OrdId { get; }
     private static List<Order> _instances = new List<Order> {};
 
     public Order(string title, string description, string price, string quantity, string date)
@@ -20,7 +20,7 @@ namespace Bakery.Models
       Quantity = quantity;
       Date = date;
       _instances.Add(this);
-      // OrdId = _instances.Count;
+      OrdId = _instances.Count;
     }
 
     public static List<Order> GetAll()
@@ -32,5 +32,11 @@ namespace Bakery.Models
     {
       _instances.Clear();
     }
+
+    public static Order Find(int searchId)
+    {
+      return _instances[searchId-1];
+    }
+
   }
 }

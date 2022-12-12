@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pierre's Bakery - Order and Vendor Tracker</title>
+    <link 
+      rel="stylesheet" 
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
+      crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Add a new order to @Model.Name</h1>
+
+    <form action="/vendors/@Model.Id/orders" method="post">
+      <input id="vendorId" name="vendorId" type="hidden" value="@Model.Id" required>
+
+      <label for="orderTitle">Order Title:</label>
+      <input id="orderTitle" name="orderTitle" type="text" required>
+
+      <label for="orderDescription">Order Description:</label>
+      <input id="orderDescription" name="orderDescription" type="text" required>
+
+      <label for="orderQuantity">Order Quantity:</label>
+      <input id="orderQuantity" name="orderQuantity" type="number" min=1 required>
+
+      <label for="orderPrice">Order Price</label>
+      <input id="orderPrice" name="orderPrice" type="number" required>
+
+      <label for="orderDate">Order Date:</label>
+      <input id="orderDate" name="orderDate" type="text" required>
+
+      <button type='submit'>Add Order</button>
+    </form>
+
+    <h3><a href='/vendors/@Model.Id'>View Current Vendor @Model.Name</a></h3>
+    <h3><a href='/vendors'> View All Vendors</a></h3>
+    <h3><a href='/'>Home</a></h3>
+  </body>
+</html>

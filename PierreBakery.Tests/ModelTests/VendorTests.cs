@@ -42,7 +42,7 @@ namespace Bakery.Tests
       Vendor newVendor = new Vendor(vendorName);
 
       //Act
-      int result = newVendor.Id;
+      int result = newVendor.VendorId;
 
       //Assert
       Assert.AreEqual(1, result);

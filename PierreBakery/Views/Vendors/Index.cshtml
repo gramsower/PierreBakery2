@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pierre's Bakery - Order and Vendor Tracker</title>
+    <link 
+      rel="stylesheet" 
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
+      crossorigin="anonymous">
+  </head>
+    <body>
+    @using Bakery.Models;
+
+    <h1>Vendors</h1>
+
+    @if (@Model.Count == 0)
+    {
+      <h3>No vendors have been added yet!</h3>
+    } 
+
+    @foreach (Vendor vendor in Model)
+    {
+      <h3><a href='/vendors/@vendor.VendorId'>@vendor.VendorName</a></h3>
+    }
+
+    <form action="/vendors/delete" method="post">
+    <button type="submit" name"button">Delete All Vendors</button>
+    </form>
+
+    <h4><a href='/vendors/new'>Add a New Vendor</a></h4>
+    <p><a href='/'>Home</a></p>
+  </body>
+</html>
