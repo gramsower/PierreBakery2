@@ -42,7 +42,7 @@ namespace Bakery.Controllers
       Vendor selectedVendor = Vendor.Find(vendorId);
       List<Order> vendorOrders = selectedVendor.Orders;
       model.Add("vendor", selectedVendor);
-      model.Add("order", vendorOrders);
+      model.Add("orders", vendorOrders);
       return View(model);
     }
 
