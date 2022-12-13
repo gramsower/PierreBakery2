@@ -12,15 +12,15 @@
     <body>
       @using Bakery.Models;
 
-      <h3>Here are all of the orders from @Model["vendor"].Name::</h3>
+     <h3>Here are all of the orders from @Model["vendor"].VendorName:</h3>
 
-      <ol>
+       <ol>
         @foreach(Order order in @Model["orders"])
         {
-         <li><a href ='/vendors/@Model["vendor"].Id/orders/@order.OrdId'>@order.Description</a></li> 
-        }
+         <li><a href ='/vendors/@Model["vendors"].VendorId/orders/@order.OrdId'>@order.Title</a></li> 
+        } 
       </ol>
-
+      <h4><a href='/vendors/@Model["vendors"].VendorId/orders/new'> Add a new order</a></h4>
       <h4><a href='/vendors/new'>Add a New Vendor</a></h4>
       <h4><a href='/vendors'> View All Vendors</a></h4>
       <p><a href='/'>Home</a></p>

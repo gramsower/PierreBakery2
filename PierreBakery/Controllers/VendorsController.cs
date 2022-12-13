@@ -5,7 +5,7 @@ using Bakery.Models;
 
 namespace Bakery.Controllers
 {
-  public class VendorController : Controller
+  public class VendorsController : Controller
   {
 
     [HttpGet("/vendors")]
@@ -46,7 +46,7 @@ namespace Bakery.Controllers
       return View(model);
     }
 
-    [HttpPost("/vendors/{vendorId}/orders}")]
+    [HttpPost("/vendors/{vendorId}/orders")]
     public ActionResult Create(int vendorId, string title, string description, string price, string quantity, string date)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
